@@ -1,0 +1,1238 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, sub, tt, var,
+dl, dt, dd,fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+:focus {
+	outline: 0;
+}
+body {
+	line-height: 1;
+	color: black;
+	background: white;
+}
+table {
+	border-collapse: separate;/**/
+	border-spacing: 0;
+}
+caption, th, td {
+	/*text-align: left;*/
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+
+html, body {
+	height: 100%;/**/
+}
+
+body {
+	font-family: Arial, Verdana, sans-serif;
+	font-size: 12px;
+	line-height: 18px;
+	padding: 0;
+	margin: 0;
+	overflow-x: hidden;
+	color: #fcfcfc;/*#626262*/
+	background:  #3F557A ;/*#fff,url(../photo/CV_o019.jpg) scroll no-repeat top center*/
+}
+
+p {
+	color: #fcfcfc;
+	margin: 0px;
+	padding: 0px;
+}
+
+a {
+	color: #fcfcfc;
+	text-decoration: none;
+}
+
+.cufon-loading a {
+   visibility: hidden !important;
+}
+
+a:hover {
+	color: #b12c39;
+	text-decoration: underline;
+}
+
+ul, li {
+	margin: 0;
+	padding: 0;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right !important;
+}
+
+.clear {
+	clear: both;	
+}
+
+#header {
+	height: ;/*120px;445px*/
+}
+
+.hidden {
+	display: none;
+}
+
+#header {
+	height:	 ;/*120px;510px*/
+}
+
+#header .head {
+	width: 960px;/*960*/
+	margin: 0 auto;
+
+}
+
+#header .head {
+	width: 960px;/*960*/
+	margin: 0 auto;
+	border-top: 0px solid #004489;
+	height: ;/*720px;506px*/
+	border-bottom: 0px solid #d2d2d2;
+	position: relative;
+}
+
+#header .head .logo {
+	margin-top: 0px;
+	display: block;
+}
+
+#main {
+	width: 100px;/*960*/
+	margin: 0 auto;
+	position: relative;
+}
+
+#footer {
+	width: 960px;
+	margin: 0 auto;
+	position: relative;
+}
+
+.letter_search li {
+	float: left;
+	list-style: none;
+}
+
+.letter_search {
+	float: right;
+	width: 310px;
+	border-bottom: 1px solid #eeeeee;
+}
+
+.normal_search {
+	float: right;
+	width: 285px;
+	margin-right: 50px;
+	border-bottom: 1px solid #eeeeee;
+}
+
+
+.letter_search li a {
+	display: block;
+	background: url(https://cruzeirosazuis.eu/img/circles.gif) scroll no-repeat 0px -35px;
+	width: 31px;
+	text-align: center;
+	height: 30px;
+	padding-top: 5px;
+	color: #9e9e9e;
+	font-family: Georgia;
+	font-style: italic;
+}
+
+.letter_search li a:hover {
+	display: block;
+	background: url(https://cruzeirosazuis.eu/img/circles.gif) scroll no-repeat 0px 0px;
+	width: 31px;
+	text-align: center;
+	height: 30px;
+	padding-top: 5px;
+	color: #fff;
+	font-family: Georgia;
+	font-style: italic;
+	text-decoration: none;
+}
+
+.logo {
+	float: left;
+}
+
+.advanced_search {
+	background: url(https://cruzeirosazuis.eu/img/arrow.gif) scroll no-repeat left 8px;
+	padding-left: 15px;
+	float: right;
+	font-family: Georgia;
+	color: #c9c9c9;
+	font-style: italic;
+	font-size: 12px;
+	display: block;
+	margin-top: 5px;
+}
+
+.langs a {
+	display: block;
+	background: url(https://cruzeirosazuis.eu/img/circles.gif) scroll no-repeat 0px -35px;
+	width: 31px;
+	text-align: center;
+	height: 30px;
+	float: left;
+	margin-right: 5px;
+	padding-top: 5px;
+	color: #9e9e9e;
+	font-family: Georgia;
+	font-style: italic;
+}
+
+.langs a:hover {
+	display: block;
+	background: url(https://cruzeirosazuis.eu/img/circles.gif) scroll no-repeat 0px 0px;
+	width: 31px;
+	text-align: center;
+	height: 30px;
+	padding-top: 5px;
+	color: #fff;
+	font-family: Georgia;
+	font-style: italic;
+	text-decoration: none;
+}
+
+.langs a.lang_active {
+	display: block;
+	background: url(https://cruzeirosazuis.eu/img/circles.gif) scroll no-repeat 0px 0px;
+	width: 31px;
+	text-align: center;
+	height: ;/*30px*/
+	padding-top: 5px;
+	color: #fff;
+	font-family: Georgia;
+	font-style: italic;
+	text-decoration: none;
+}
+
+.searchbox {
+	background: url(https://cruzeirosazuis.eu/img/search.gif) scroll no-repeat 0px 0px;
+	padding: 7px 0px 9px 13px;
+    border: none;
+    width: 272px;
+    font-family: Georgia;
+    color: #C9C9C9;
+    font-style: italic;
+}
+
+#search_button {
+	background: url(https://cruzeirosazuis.eu/img/searchbutton.gif) scroll no-repeat 0px 0px;
+	position: absolute;
+	display: block;
+	border: none;
+	cursor: pointer;
+	width: 15px;
+	height: 24px;
+    right: 36px;
+    top: 13px;
+}
+
+.search {
+	position: relative;
+    width: 272px;	
+	float: right;
+	padding: 10px;
+	padding-right: 35px;
+	border-right: 1px solid #e4e4e4;
+	margin-right: 25px;
+	margin-top: ;/*35px*/
+	padding-bottom: 0px;
+}
+
+.langs {
+	float: right;
+	width: 110px;
+	margin-top: 45px;
+}
+
+
+.headerimg {
+	width: 960px;/*;1096px*/
+	height: 140px;/*312px*/
+	margin-left: 0px;/*-20px*/
+	position: absolute;
+	left: 0px;
+	top: 0px;
+}
+
+#headerimgs {
+	margin-top: 10px; 
+	position: relative;
+}
+
+#nav {
+	float: left;
+	margin-top: 0px;
+}
+
+#nav li {
+	float: left;
+	list-style: none;
+}
+
+#nav li a {
+	color: #424242;
+	text-transform: uppercase;
+	display: block;
+	font-size: 14px;
+	padding: 20px 15px;
+}
+
+#nav li a:hover {
+	text-decoration: none;
+	background: url(https://cruzeirosazuis.eu/img/hover.gif) scroll no-repeat bottom center;
+}
+
+#nav li.active a {
+	text-decoration: none;
+	background: url(https://cruzeirosazuis.eu/img/hover.gif) scroll no-repeat bottom center;
+}
+
+
+.scroller {
+	background: #ad0011;
+	width: 450px;
+	position: relative;
+	float: right;
+	margin-top: 245px;
+	color: #fff;
+	height: 126px;
+}
+
+.scroller h2 {
+	font-size: 22px;
+	padding-bottom: 10px;
+}
+
+.scroller p {
+	font-size: 13px;
+}
+
+.scroller .list_item {
+	padding: 30px;
+}
+
+.controls {
+	position: absolute;
+    right: 22px;
+    top: 21px;
+    width: 40px;
+    z-index: 9999;
+}
+
+.controls div {
+	float: left;
+	cursor: pointer;
+}
+
+.left_side {
+	float: left;
+	margin-left: 20px;
+	width: 430px;
+	padding-top: 20px;
+	padding-bottom: 0px;
+	border-bottom: 0px solid #e7e7e7;
+	min-height: 400px;
+	position: relative;
+}
+
+.right_side {
+	float: right;
+	margin-right: 20px;
+	width: 430px;
+	padding-top: 20px;
+	padding-bottom: 0px;
+	/*background: url(../img/map.gif) scroll no-repeat right 82px;*/
+    min-height: 400px;
+    border-bottom: 0px solid #e7e7e7;
+	position: relative;
+}
+
+.left_side p {
+	line-height: 15px
+}
+
+.right_side p {
+	line-height: 15px;
+}
+
+.right_side p strong {
+	color: #ad0011;
+}
+
+
+.right_side .more {
+	position: absolute;
+	bottom: 20px;
+}
+
+.left_side .more {
+	position: absolute;
+	bottom: 20px;
+}
+
+.more {
+	/*background: url(../img/arrow_02.gif) scroll no-repeat 0px 10px;*/
+	padding-left: 12px;
+	text-transform: lowercase;
+	font-family: Georgia;
+	font-style: italic;
+	color: #fcfcfc;
+}
+
+.left_side h3 {
+	font-size: 26px;
+	color: #fcfcfc;/*383838*/
+}
+
+.left_side h4 {
+	font-size: 18px;
+	color: #004489;
+	padding-bottom: 15px;
+	border-bottom: 0px solid #e7e7e7;
+	margin-bottom: 10px;
+}
+
+.page_title {
+	font-size: 26px;
+	color: #383838;
+}
+
+.page_subtitle {
+	font-size: 18px;
+	color: #004489;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #e7e7e7;
+	margin-bottom: 10px;
+}
+
+.right_side h3 {
+	font-size: 26px;
+	color: #383838;
+}
+
+.right_side h4 {
+	font-size: 18px;
+	color: #004489;
+	padding-bottom: 15px;
+	border-bottom: 1px solid #e7e7e7;
+	margin-bottom: 10px;
+}
+
+.path {
+	padding-top: 13px !important;
+	padding-bottom: 13px;
+	margin-bottom: 18px;
+	color: #939393;
+	border-bottom: 1px solid #e7e7e7;
+}
+
+.path a {
+	background: url(https://cruzeirosazuis.eu/img/arrow_02.gif) scroll no-repeat right center;
+	padding-right: 15px;
+	margin-right: 5px;
+	color: #939393;
+}
+
+.page_title {
+	color: #383838;
+	font-size: 27px;
+	padding-bottom: 7px;
+}
+
+.pagging {
+	float: right !important;
+}
+
+.pagging input {
+	border: none;
+	width: 50px;
+	color: #3f3f3f;
+	background: none;
+	text-align: center;
+}
+
+.amountperpage {
+	float: left;
+}
+
+
+table.tablesorter {
+	font-family:arial;
+	margin:10px 0pt 15px;
+	width: 100%;
+	text-align: left;
+	
+}
+table.tablesorter thead tr th, table.tablesorter tfoot tr th {
+	border-top: 1px solid #e7e7e7;
+	border-bottom: 1px solid #e7e7e7;
+	padding: 10px 7px;
+}
+
+table.tablesorter thead tr .header {
+	background-image: url(https://cruzeirosazuis.eu/img/bg.gif);
+	background-repeat: no-repeat;
+	background-position: center left;
+	cursor: pointer;
+}
+table.tablesorter tbody td {
+	color: #3D3D3D;
+	padding: 10px 7px;
+	background: transparent url(https://cruzeirosazuis.eu/img/dott.gif) scroll repeat-x left bottom;
+	vertical-align: top;
+}
+
+table.tablesorter tbody td a {
+	color: #ad0011;
+}
+
+table.tablesorter thead tr span {
+	padding-left: 15px;
+}
+
+#pager {
+	width: 938px;
+	background: #f8f8f8;
+	border: 1px solid #eeeeee;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-top: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#pager img {
+	margin-bottom: -4px;
+}
+
+table.tablesorter tbody tr:hover {
+	background: url(https://cruzeirosazuis.eu/img/trhover.gif) scroll repeat-x left center !important;
+	color: #fff !important;
+}
+
+table.tablesorter tbody tr:hover * {
+	color: #fff !important;
+}
+
+table.tablesorter thead tr .headerSortUp {
+	background-image: url(https://cruzeirosazuis.eu/img/asc.gif);
+}
+table.tablesorter thead tr .headerSortDown {
+	background-image: url(https://cruzeirosazuis.eu/img/desc.gif);
+}
+
+.menu_bottom {
+	width: 938px;
+	background: #f8f8f8;
+	border: 1px solid #eeeeee;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	margin-top: 15px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+.menu_bottom ul {
+	float: right;
+	width: 395px;
+}
+
+.menu_bottom ul li {
+	float: left;
+	list-style: none;
+}
+
+.menu_bottom ul li a {
+	background: url(https://cruzeirosazuis.eu/img/arrow_03.gif) scroll no-repeat left 4px;
+	padding-left: 10px;
+	margin-left: 20px;
+	color: #4a4a4a;
+}
+
+.copy {
+	float: left;
+}
+
+.searched {
+	color: #004489;
+	font-size: 16px;
+}
+
+.no_result {
+	text-align: center;
+	font-size: 14px;
+}
+
+.product_right {
+	float: right;
+	width: 690px;
+}
+
+.product_menu {
+	float: left;
+	width: 250px;
+}
+
+.left_page {
+	width: 670px;
+	float: left;
+}
+
+.right_page {
+	float: right;
+	width: 270px;
+}
+
+.banner_all {
+	text-align: center;
+}
+
+.contact_left {
+	width: 280px;
+	border-bottom: 1px solid #eeeeee;
+}
+
+.contact_left p strong {
+	color: #ad0011;
+	display: block;
+	padding-bottom: 5px;
+}
+
+.contact_right {
+	float: right;
+	width: 627px;
+	border-bottom: 1px solid #eeeeee;
+}
+
+.contact_right textarea {
+	background: url(https://cruzeirosazuis.eu/img/textarea.gif) scroll no-repeat 0px 0px;
+	padding: 10px;
+	width: 297px;
+	height: ;/*129px*/
+	border: none;
+	color: #9e9e9e;
+	font-family: Georgia;
+	font-style: italic;
+	font-size: 11px;
+	resize: none;
+}
+
+.mycontent {
+	float: right;
+	width: 317px;
+}
+
+.errored {
+	display: block;
+	color: red;
+	margin-bottom: 5px;
+}
+
+.form_left {
+	float: left;
+}
+
+.contact_form input {
+	background: url(https://cruzeirosazuis.eu/img/contact_input.gif) scroll no-repeat 0px 0px;
+	padding: 7px;
+	padding-left: 15px;
+	width: 268px;
+	color: #9e9e9e;
+	font-family: Georgia;
+	font-style: italic;
+	border: none;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+
+#myform p { 
+	position:relative 
+}
+
+#myform label  { 
+	position:absolute; 
+	top:5px; 
+	left:14px;
+	color: #9e9e9e;
+	font-family: Georgia;
+	font-style: italic;
+	text-transform: lowercase;
+}
+
+
+#login_form {
+	padding-top: 15px;
+}
+
+#login_form p { 
+	position:relative 
+}
+
+#login_form label  { 
+	position:absolute; 
+	top:5px; 
+	left:14px;
+	color: #9e9e9e;
+	font-family: Georgia;
+	font-style: italic;
+	text-transform: lowercase;
+}
+
+
+#send_button {
+	background: url(https://cruzeirosazuis.eu/img/arrow_02.gif) scroll no-repeat 0px 7px;
+	text-transform: lowercase;
+	font-family: Georgia;
+	font-style: italic;
+	color: #a3a3a3;
+	width: auto;
+	padding: 0px;
+	padding-left: 10px;
+	float: right;
+	cursor: pointer;
+}
+
+.search_claim {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border-bottom: 1px solid #eeeeee;
+	border-top: 1px solid #eeeeee;
+	margin-bottom: 15px;
+}
+
+.search_menu {
+	float: left;
+}
+
+.search_menu ul {
+	list-style: none;
+	width: 250px;
+}
+
+.search_menu ul li a {
+	background: url(https://cruzeirosazuis.eu/img/arrow_02.gif) scroll no-repeat 0px center;
+	padding-left: 12px;
+	text-transform: uppercase;
+	color: #464646;
+	display: block;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	border-bottom: 1px solid #eeeeee;
+}
+
+.search_menu ul li a:hover {
+	color: #ad0011;
+	text-decoration: none;
+}
+
+.normal_search select {
+	padding: 5px;
+	width: 262px;
+	border: none;
+}
+
+.firefox .normal_search select {
+	padding: 3px !important; 
+	width: 262px;
+	border: none;
+}
+
+.myselect {
+	background: url(https://cruzeirosazuis.eu/img/search.gif) scroll no-repeat 0px 0px;
+    padding: 3px 1px 9px 9px;
+    width: 272px;
+    border: none;
+    font-family: Georgia;
+    color: #C9C9C9;
+    font-style: italic;
+}
+
+
+.normal_search input {
+	margin-bottom: 10px;
+}
+
+.normal_search strong {
+	display: block;
+	margin-bottom: 10px;
+}
+
+.letter_search strong {
+	display: block;
+	margin-bottom: 10px;
+}
+
+#searchit {
+	background: url(https://cruzeirosazuis.eu/img/arrow_02.gif) scroll no-repeat 0px 7px;
+	text-transform: lowercase;
+	font-family: Georgia;
+	font-style: italic;
+	color: #a3a3a3;
+	width: auto;
+	padding: 0px;
+	padding-left: 10px;
+	float: right;
+	cursor: pointer;
+	border: none;
+	margin-top: 10px;
+}
+
+.login_box input {
+	background: url(https://cruzeirosazuis.eu/img/input.gif) scroll no-repeat 0px 0px;
+	padding: 7px;
+	padding-bottom: 9px;
+	padding-left: 15px;
+	width: 380px;
+	color: #9e9e9e;
+	font-family: Georgia;
+	font-style: italic;
+	border: none;
+	margin-bottom: 12px;
+}
+
+.register_box input {
+	background: url(https://cruzeirosazuis.eu/img/input_register.gif) scroll no-repeat 0px 0px;
+	padding: 7px;
+	padding-bottom: 9px;
+	padding-left: 15px;
+	width: 430px;
+	color: #9e9e9e;
+	font-family: Georgia;
+	font-style: italic;
+	border: none;
+	margin-bottom: 12px;
+}
+
+.register_box tr {
+	background: #fff !important;
+}
+
+.login_box {
+	float: left;
+	width: 425px;
+}
+
+#registerBtn {
+	background: url(https://cruzeirosazuis.eu/img/arrow_02.gif) scroll no-repeat 0px 7px;
+	text-transform: lowercase;
+	font-family: Georgia;
+	font-style: italic;
+	color: #a3a3a3;
+	width: auto;
+	padding: 0px;
+	padding-left: 10px;
+	float: right;
+	cursor: pointer;
+	border: none;
+	margin-top: 10px;
+}
+
+#login_bgn {
+	background: url(https://cruzeirosazuis.eu/img/arrow_02.gif) scroll no-repeat 0px 7px;
+	text-transform: lowercase;
+	font-family: Georgia;
+	font-style: italic;
+	color: #a3a3a3;
+	width: auto;
+	padding: 0px;
+	padding-left: 10px;
+	float: right;
+	cursor: pointer;
+	border: none;
+	margin-top: 10px;
+}
+
+.register_box {
+	float: right;
+	width: 470px;
+}
+
+.register_box em {
+	padding-left: 10px;
+	color: #ad0011;
+}
+
+.login_box em {
+	padding-left: 10px;
+	color: #ad0011;
+}
+
+.sepator {
+	height: 1px;
+	background: #eeeeee;
+	margin-top: 15px;
+	margin-bottom: 10px;
+}
+
+.sep {
+	height: 1px;
+	background: #eeeeee;
+	margin-top: 10px;
+	margin-bottom: 5px;
+
+}
+
+.register_box #myform {
+	padding-top: 15px;
+}
+
+.register_box select {
+	border: none;
+	padding: 5px;
+	padding-left: 0px;
+	width: 425px;
+	margin-left: 2px;
+	font-family: Georgia;
+	font-style: italic;
+	color: #a3a3a3;
+	margin-right: 18px;
+}
+
+.firefox .register_box select {
+	border: none;
+	padding: 3px;
+	padding-left: 0px;
+	width: 425px;
+	margin-left: 2px;
+	font-family: Georgia;
+	font-style: italic;
+	color: #a3a3a3;
+	margin-right: 18px;
+}
+
+
+.register_box .myselect {
+	background: url(https://cruzeirosazuis.eu/img/input_register.gif) scroll no-repeat 0px 0px;
+	width: 470px;
+	padding-top: 3px;
+	margin-bottom: 10px;
+	padding-bottom: 9px;
+}
+
+.notification {
+	position: relative;
+	margin: 0 0 15px 0;
+	padding: 0;
+	border: 1px solid;
+	background-position: 10px 11px !important;
+	background-repeat: no-repeat !important;
+	font-size: 13px;
+	width: 99.8%;
+	}
+
+.attention {
+    background: #fffbcc url('https://cruzeirosazuis.eu/img/exclamation.png') 10px 11px no-repeat;
+    border-color: #e6db55;
+    color: #666452;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+
+
+.information {
+	background: #dbe3ff url('https://cruzeirosazuis.eu/img/information.png');
+	border-color: #a2b4ee;
+	color: #585b66;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+
+
+.success {
+    background: #d5ffce url('https://cruzeirosazuis.eu/img/tick_circle.png');
+    border-color: #9adf8f;
+    color: #556652;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+
+
+.error {
+	background: #ffcece url('https://cruzeirosazuis.eu/img/cross_circle.png');
+	border-color: #df8f8f;
+	color: #665252;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.notification div {
+    display:block;
+    font-style:normal;
+    padding: ;/*10px 10px 10px 36px*/
+    line-height: 1.5em;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+}
+
+.notification .close {
+    color:#990000;
+    font-size:9px;
+    position:absolute;
+    right:10px;
+    top:10px;
+}
+.red {
+	color: red;
+	text-decoration: underline;
+}
+
+.logged_info {
+	float: right;
+	padding-top: 15px;
+	font-family: Georgia;
+	font-style: italic;
+	color: #a3a3a3;
+}
+
+.logged_info a {
+	color: #AD0011;
+	font-family: Georgia;
+	font-style: italic;
+}
+
+.specyfication {
+	margin-top: 20px;
+	color: #ad0011;
+	text-transform: uppercase;
+	padding-bottom: 10px;
+}
+
+.techdata {
+	color: #ad0011;
+	text-transform: uppercase;
+	padding-bottom: 10px;
+}
+
+.offer_item_item {
+	list-style: none;
+}
+
+.offer_item_item a {
+	color: #004489;
+	text-decoration: underline;
+	background: url(https://cruzeirosazuis.eu/img/pdf.gif) scroll no-repeat 0px 0px;
+	padding-left: 24px;
+	display: block;
+	margin-bottom: 8px;
+}
+
+.product_right table {
+	width: 100%;
+}
+
+.product_right table td {
+	padding: 10px;
+	font-weight: bold;
+	border-left: 4px solid #fff;
+}
+
+.product_right table th {
+	padding: 10px;
+}
+
+.prod_item .more {
+	background: url(https://cruzeirosazuis.eu/img/arrow_02.gif) scroll no-repeat 0px 9px;
+	padding-left: 12px;
+	text-transform: lowercase;
+	font-family: Georgia;
+	font-style: italic;
+	color: #a3a3a3;
+	float: right;
+}
+
+.prod_title {
+	padding-bottom: 5px;
+}
+
+.prod_title a:hover {
+	text-decoration: none;
+}
+
+.item_1 {
+}
+
+.item_2 {
+	background: #f8f8f8;
+}
+
+.type_0 {
+	background: #ffffff !important;
+}
+
+.type_0 p {
+	padding: 0px !important;
+}
+
+
+.prod_item p {
+	float: left;
+	padding: 8px;
+	display: inline-table;
+}
+
+.desc {
+	float: left;
+	width: 325px;
+}
+
+.prod_title2 {
+	width: 130px;
+}
+
+.prod_head p {
+	float: left;
+	padding: 10px;
+	font-weight: bold;
+}
+
+.prod_head {
+	display: none;
+	border-bottom: 1px solid #eeeeee;
+	width: 690px;
+	height: 45px;
+}
+
+.with_border{
+	border-left: 3px solid #fff;
+}
+
+.product_menu li {
+	list-style: none;
+}
+
+.product_menu li ul {
+	margin-left: 10px;
+	display: none;
+}
+
+.product_menu li.active ul {
+	display: block;
+}
+
+.product_menu li.active h2 a {
+	color: #ad0011;
+}
+
+
+.product_menu .level1 .active h3 a {
+	color: #ad0011;
+}
+
+
+.product_menu li ul li ul {
+	display: none !important;
+}
+
+.product_menu .level1 .active .level2 {
+	display: block !important;
+}
+
+.product_menu .level1 .active .level2 {
+	display: block !important;
+}
+
+.product_menu .level2 .active h4 a {
+	color: #ad0011;
+}
+
+.product_menu .level1 .active .level2 .active .level3 {
+	display: block !important;
+}
+
+.product_menu .level3 .active a {
+	color: #ad0011;
+}
+
+.product_menu .level1 .active .level2 .active .level3 .active .level4 {
+	display: block !important;
+}
+
+.product_menu .level4 a {
+	color: #6b6b6b !important; 
+}
+
+.product_menu .level4 .active a {
+	color: #ad0011; 
+}
+
+.product_menu .level4 .active h6 a {
+	color: #ad0011 !important;  
+}
+
+
+.product_menu .level1 .active .level2 .active .level3 .active .level4 .active .level5 {
+	display: block !important;
+}
+
+.product_menu .level5 a {
+	color: #6b6b6b !important; 
+}
+
+
+.product_menu .level5 .active a {
+	color: #ad0011 !important; 
+}
+
+
+.product_menu li ul a {
+	padding-left: 12px;
+	background: url(https://cruzeirosazuis.eu/img/arrow_03.gif) scroll no-repeat 0px 12px;
+	display: block;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: #6b6b6b;
+}
+
+.product_menu ul li h2 a {
+	background: url(https://cruzeirosazuis.eu/img/arrow_02.gif) scroll no-repeat 0px center;
+	padding-left: 12px;
+	text-transform: uppercase;
+	color: #464646;
+	display: block;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	border-bottom: 1px solid #eeeeee;
+}
+
+.product_menu ul li h2 a:hover {
+	color: #ad0011;
+	text-decoration: none;
+}
+
+.product_menu ul li a:hover {
+	color: #ad0011;
+	text-decoration: none;
+}

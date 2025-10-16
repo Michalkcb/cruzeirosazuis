@@ -1,0 +1,771 @@
+@charset "utf-8";
+/* CSS Document */
+@import url("https://cruzeirosazuis.eu/css/webfonts/cal_l/stylesheet.css");
+@import url("https://cruzeirosazuis.eu/css/webfonts/calib/stylesheet.css");
+
+body {
+	background-color: #FFF;
+	margin: 0;
+	padding: 0;
+	color: #000;
+	font-family: "cal_l";
+	font-size: 100%;
+	line-height: 1.4;
+}
+/* ~~ Element/tag selectors ~~ */
+ul, ol, dl { /* Due to variations between browsers, it's best practices to zero padding and margin on lists. For consistency, you can either specify the amounts you want here, or on the list items (LI, DT, DD) they contain. Remember that what you do here will cascade to the .nav list unless you write a more specific selector. */
+	padding: 0;
+	margin: 0;
+}
+h1, h2, h3, h4, h5, h6, p {
+	margin-top: 25px;	 /* removing the top margin gets around an issue where margins can escape from their containing block. The remaining bottom margin will hold it away from any elements that follow. */
+	padding-right: 5px;
+	padding-left: 0px; /* adding the padding to the sides of the elements within the blocks, instead of the block elements themselves, gets rid of any box model math. A nested block with side padding can also be used as an alternate method. */
+}
+.sidebar_l h2, .sidebar_p h2, .content h2{
+	background-color: #3e8aa8;
+	font-family: calib;
+	font-size: 16px;
+	text-transform: uppercase;
+	color: #FFF;
+	text-align: center;
+	display: inline;
+	-webkit-box-shadow: 3px 3px 1px #BBB;
+	box-shadow: 3px 3px 1px #BBB;
+	margin-bottom: 130px;
+	letter-spacing: 1.1pt;
+	padding-top: 5px;
+	padding-right: 7px;
+	padding-bottom: 5px;
+	padding-left: 7px;
+	font-weight: normal;
+	margin-top: 50px;
+}
+
+.sidebar_l p, .sidebar_p p {
+	padding: 0px;
+	margin-top: 20px;
+}
+a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+	border: none;
+}
+/* ~~ Styling for your site's links must remain in this order â including the group of selectors that create the hover effect. ~~ */
+a:link {
+	color: #3E8AA8;
+	text-decoration: none; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
+}
+
+a:visited {
+	color: #6AAEC8;
+	;
+	text-decoration: underline;
+}
+a:hover, a:active, a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+	text-decoration: underline;
+}
+/* ~~ This fixed width container surrounds all other blocks ~~ */
+.container {
+	width: 960px;
+	background-color: #FFFFFF;
+	margin: 0 auto; /* the auto value on the sides, coupled with the width, centers the layout */
+	font-size: 11pt;
+	text-align: justify; /*zmiana IGG */
+	line-height: 1.4;
+	color: #333;
+}
+.p_menu {
+	width: 960px;
+	height: 35px;
+	background-color: #434242;
+	margin: 0 auto;
+	font-family: calib;
+	font-size: 16px;
+	color: #FFF;/* ~~ The header is not given a width. It will extend the full width of your layout. ~~ */
+}
+.nav ul {
+	list-style: none; /* this creates the space between the navigation on the content below */
+	border-top-style: none;
+	margin-left: 0px;
+	font-weight: normal;
+}
+
+.nav ul li {
+	float: left;
+	padding-right: 10px;
+	padding-top: 5px;
+	padding-bottom: 0px;
+	padding-left: 10px;
+	height: 30px;
+	margin-top: 0px;
+	border-right-width: 0px;
+	border-left-width: 1px;
+	border-right-style: solid;
+	border-left-style: solid;
+	border-right-color: #FFF;
+	border-left-color: #FFF;
+	font-family: calib;
+	letter-spacing: 0.5pt;
+	text-align: center;
+	background-color: #434242;
+	-webkit-transition: background-color 500ms;
+	-moz-transition: background-color 500ms;
+	-ms-transition: background-color 500ms;
+	-o-transition: background-color 500ms;
+	transition: background-color 500ms;
+}
+.nav ul li:hover {
+	background-color: #3e8aa8;	
+}
+.nav ul a, .nav ul a:visited { /* grouping these selectors makes sure that your links retain their button look even after being visited */
+	display: inline; /* this gives the link block properties causing it to fill the whole LI containing it. This causes the entire area to react to a mouse click. */
+	width: 160px;  /*this width makes the entire button clickable for IE6. If you don't need to support IE6, it can be removed. Calculate the proper width by subtracting the padding on this link from the width of your sidebar container. */
+	text-decoration: none;
+	color: #FFF;
+	padding-top: 3px;
+	padding-right: 5px;
+	padding-bottom: 3px;
+	padding-left: 5px;
+}
+.nav ul a:hover, .nav ul a:active, .nav ul a:focus { /* this changes the background and text color for both mouse and keyboard navigators */
+	color: #FFF;
+	background-repeat: repeat;
+}
+
+header {
+	background-color: #FFFFFF;
+}
+/* ~~ These are the columns for the layout. ~~ 
+
+1) Padding is only placed on the top and/or bottom of the block elements. The elements within these blocks have padding on their sides. This saves you from any "box model math". Keep in mind, if you add any side padding or border to the block itself, it will be added to the width you define to create the *total* width. You may also choose to remove the padding on the element in the block element and place a second block element within it with no width and the padding necessary for your design.
+
+2) No margin has been given to the columns since they are all floated. If you must add margin, avoid placing it on the side you're floating toward (for example: a right margin on a block set to float right). Many times, padding can be used instead. For blocks where this rule must be broken, you should add a "display:inline" declaration to the block element's rule to tame a bug where some versions of Internet Explorer double the margin.
+
+3) Since classes can be used multiple times in a document (and an element can also have multiple classes applied), the columns have been assigned class names instead of IDs. For example, two sidebar blocks could be stacked if necessary. These can very easily be changed to IDs if that's your preference, as long as you'll only be using them once per document.
+
+4) If you prefer your nav on the left instead of the right, simply float these columns the opposite direction (all left instead of all right) and they'll render in reverse order. There's no need to move the blocks around in the HTML source.
+
+*/
+.sidebar_l {
+	float: left;
+	width: 460px;
+	padding-top: 40px;
+	padding-right: 15px;
+	padding-bottom: 40px;
+	padding-left: 0px;
+}
+
+
+
+.sidebar_p {
+	float: left;
+	width: 460px;
+	padding-top: 40px;
+	padding-right: 5px;
+	padding-bottom: 40px;
+	padding-left: 15px;
+}
+
+
+
+.content {
+	padding: 10px 0;
+	width: 960px;
+	float: left;
+}
+aside {
+	float: left;
+	width: 180px;
+	background-color: #EADCAE;
+	padding: 10px 0;
+}
+
+/* ~~ This grouped selector gives the lists in the .content area space ~~ */
+.content ul, .content ol {
+	padding: 0 15px 15px 40px; /* this padding mirrors the right padding in the headings and paragraph rule above. Padding was placed on the bottom for space between other elements on the lists and on the left to create the indention. These may be adjusted as you wish. */
+}
+.lewa_650 {
+	float: left;
+	width: 650px;
+	padding-right: 15px;
+	padding-bottom: 20px;
+	padding-left: 0px;
+}
+
+/* ~~ The navigation list styles (can be removed if you choose to use a premade flyout menu like Spry) ~~ */
+ul.nav {
+	list-style: none; /* this removes the list marker */
+	border-top: 1px solid #666; /* this creates the top border for the links â all others are placed using a bottom border on the LI */
+	margin-bottom: 15px; /* this creates the space between the navigation on the content below */
+}
+ul.nav li {
+	border-bottom: 1px solid #666; /* this creates the button separation */
+}
+ul.nav a, ul.nav a:visited { /* grouping these selectors makes sure that your links retain their button look even after being visited */
+	padding: 5px 5px 5px 15px;
+	display: block; /* this gives the link block properties causing it to fill the whole LI containing it. This causes the entire area to react to a mouse click. */
+	width: 160px;  /*this width makes the entire button clickable for IE6. If you don't need to support IE6, it can be removed. Calculate the proper width by subtracting the padding on this link from the width of your sidebar container. */
+	text-decoration: none;
+	background-color: #C6D580;
+}
+ul.nav a:hover, ul.nav a:active, ul.nav a:focus { /* this changes the background and text color for both mouse and keyboard navigators */
+	background-color: #ADB96E;
+	color: #FFF;
+}
+
+.banner_g {
+	width:955px;
+	height:382px;
+	-webkit-box-shadow: 5x 5px 5px #AAA;
+	box-shadow: 5px 5px 5px  #AAA;
+}
+.banner_rejs {
+	width:955px;
+	height:455px;
+	background:#ECECEC;
+	-webkit-box-shadow: 5x 5px 5px #AAA;
+	box-shadow: 5px 5px 5px  #AAA;
+	
+}
+.banner_rejsy_morskie {
+	width: 955px;
+	height: 330px;
+	background: #ECECEC;
+	-webkit-box-shadow: 5x 5px 5px #AAA;
+	box-shadow: 5px 5px 5px  #AAA;
+}
+
+.banner_rejs h1{
+	font-size: 13pt;
+	text-transform: uppercase;
+	color: #3e8aa8;
+	padding-left: 10px;
+	letter-spacing: 1.2pt;
+	padding-top: 0px;
+	margin-top: 5px;
+}
+.skrot_rej{
+	background:#ECECEC;
+	padding:5px 10px;
+	margin-bottom:15px;
+	line-height:1.5em;
+}
+.zapis{
+	background: #ECECEC;
+	font-size: 13pt;
+	font-weight: bold;
+	text-align: center;
+	color: #666;
+	text-transform: uppercase;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 30px;
+	margin-left: 350px;
+	padding-top: 3px;
+	padding-right: 10px;
+	padding-bottom: 3px;
+	padding-left: 10px;
+	
+}
+
+
+
+.zapis a{
+	color:#999;
+	text-decoration:none;
+}
+.zapis a:hover{
+	color:#333;
+	text-decoration:none;
+}
+
+
+.zapis2 {
+	background: #ECECEC;
+	font-size: 13pt;
+	font-weight: bold;
+	text-align: center;
+	color: #666;
+	text-transform: uppercase;
+	margin-top: 5px;
+	margin-right: 0px;
+	margin-bottom: 10px;
+	margin-left: 300px;
+	padding-top: 5px;
+	padding-right: 8px;
+	padding-bottom: 5px;
+	padding-left: 8px;
+}
+.zapis2center {
+	background: #ECECEC;
+	font-size: 13pt;
+	font-weight: bold;
+	text-align: center;
+	color: #666;
+	text-transform: uppercase;
+	margin-top: 5px;
+	margin-right: 200px;
+	margin-bottom: 10px;
+	margin-left: 200px;
+	padding-top: 5px;
+	padding-right: 8px;
+	padding-bottom: 5px;
+	padding-left: 8px;
+}
+
+.zapis2 a {
+	color: #999;
+	text-decoration: none;
+}
+.zapis2 a:hover {
+	color: #333;
+	text-decoration: none;
+}
+/* szary pasek oddzielenie nagĹowka od strony w podstronach */
+.pasek{
+	width: 955px;
+	height: 5px;
+	background-color: #ececec;
+	display: block;
+}
+
+
+/* biaĹy pasek niewidoczny do rozdzielenie kategorii rejsĂłw w liĹcie */
+.pasek_b{
+	width: 955px;
+	height: 5px;
+	background-color: #FFF;
+	display: block;
+}
+
+.news{
+	height: 110px;
+	margin-top: 25px;
+}
+.dane_adresowe {
+	width: 420px;
+	padding-left: 2px;
+
+}
+
+.marg4p {
+	margin-right: 4px;
+	margin-bottom: 6px;
+}
+
+.ortem {display:inline; margin:0px} /*IGG*/
+
+.plasko {display:block-inline; }
+
+.marg4l {
+	margin-left: 4px;
+	margin-bottom: 6px;
+}
+.marg10dol {
+	margin-bottom: 10px;
+}
+.marg20L_lista_pytan {
+	margin-left: 20px;
+	width: 650px;
+}
+
+.obr_news{
+	width: 150px;
+	height: 100px;
+	margin-right: 10px;
+	float: left;
+	margin-bottom: 15px;
+}
+.news h5{
+	font-size: 12pt;
+	color: #555;
+	padding: 0px 5px;
+	background-color: #DDD;
+	display: inline;
+	font-family: "cal_l";
+	padding-bottom: 2px;
+}
+
+.news p{
+	margin-top: 6px;
+}
+.news_let{
+	color: #666;
+	border-color: #999;
+}
+.news_let input{
+	background-color:#EEE;
+	color:#666;
+	padding:2px;
+	border:solid #666 1px;
+	margin-right:8px;	
+}
+.dzial{
+	width: 960px;
+	margin-bottom: 35px;
+	width: 950px;
+	display: block;
+	float: left;
+	margin-top: 10px;
+	padding-bottom: 20px;
+}
+.dzial_r {
+	width: 960px;
+	margin-bottom: 10px;
+	width: 960px;
+	display: block;
+	float: left;
+	margin-top: 10px;
+}
+
+.dzial_gal_b50 {
+	width: 960px;
+	width: 950px;
+	margin-top: 10px;
+}
+
+
+.dzial_zamowienie {
+	width: 960px;
+	margin-bottom: 10px;
+	width: 610px;
+	display: block;
+	float: left;
+	margin-top: 10px;
+}
+.glob {
+	margin-bottom: 0px;
+	display: block;
+	float: left;
+	margin-top: 10px;
+	margin-left: 10px;
+}
+
+
+
+section {
+	margin-bottom: 25px;
+	width: 960px;
+	border: 1px solid #F03;
+	
+}
+.dzial h2{
+	display:block;
+	float:left;
+}
+.galerie {
+	width: 310px;
+	height: 242px;
+	background-color: #CCCCCC;
+	-webkit-box-shadow: 5x 5px 4px #BBB;
+	box-shadow: 5px 5px 4px  #BBB;
+	margin-top: 12px;
+	margin-right: 10px;
+	margin-bottom: 0px;
+	margin-left: 0px;
+	display: block;
+	-webkit-transition: background-color 0.5s ease 0s;
+	-moz-transition: background-color 0.5s ease 0s;
+	-ms-transition: background-color 0.5s ease 0s;
+	-o-transition: background-color 0.5s ease 0s;
+	transition: background-color 0.5s ease 0s;
+	float: left;
+}
+.galerie h3 {
+	font-size: 12pt;
+	text-transform: uppercase;
+	color: #666;
+	padding-left: 10px;
+	letter-spacing: 1.1pt;
+	padding-top: 0px;
+	margin-top: 5px;
+}
+.galerie a:link {
+	color: #333;
+	text-decoration: none; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
+}
+.galerie:hover {
+	background-color: #AAA;
+}
+.galeria_szare {
+	background-color: #E8E8E8;
+	font-family: calib;
+	font-size: 16px;
+	text-transform: uppercase;
+	color: #333;
+	text-align: center;
+	display: inline;
+	letter-spacing: 1.1pt;
+	padding-top: 5px;
+	padding-right: 8px;
+	font-weight: normal;
+	padding-bottom: 5px;
+	padding-left: 8px;
+	margin-left: 79px;
+}
+.gal_fot {
+	width: 150px;
+	height: 80px;
+	float: left;
+	margin-left: 9px;
+	margin-bottom: 9px;
+}
+.dzial_gal {
+	width: 960px;
+	width: 850px;
+}
+.wiadomosc_l {
+	margin-right: 4px;
+	margin-bottom: 6px;
+	width: 650px;
+	float: left;
+}
+
+.co_nowego {
+	margin-top: 25px;
+}
+.co_nowego newsy {
+	margin-bottom: 10px;
+
+}
+
+.co_nowego h1 {
+	background-color: #E8E8E8;
+	font-family: calib;
+	font-size: 16px;
+	text-transform: uppercase;
+	color: #333;
+	text-align: center;
+	display: inline;
+	letter-spacing: 1.1pt;
+	padding-top: 5px;
+	padding-right: 8px;
+	padding-bottom: 5px;
+	padding-left: 8px;
+	font-weight: normal;
+}
+.co_nowego_float_prawa {
+	float: right;
+	margin-right: 90px;
+	margin-left: 20px;
+}
+.co_nowego_float_prawa_2 {
+	float: right;
+	margin-right: 25px;
+	margin-left: 25px;
+}
+
+
+.zdjecie_newsy {
+	float: right;
+	padding-right: 120px;
+	padding-left: 30px;
+	padding-bottom: 30px;
+}
+.o_nas_p {
+	width: 610px;
+	margin-left: 345px;
+	margin-top: 0px;
+	padding-top: 195px;
+}
+.o_nas_foto {
+	float: left;
+	width: 350px;
+	padding-left: 0px;
+}
+.o_nas_opinie {
+	width: 650px;
+	margin-left: 0px;
+}
+
+.o_nas_zapraszamy {
+	margin-left: 350px;
+	margin-top: 15px;
+	float: none;
+}
+.kontakt_sidebar_l {
+	float: left;
+	width: 460px;
+	padding-top: 40px;
+	padding-right: 15px;
+	padding-bottom: 40px;
+	padding-left: 0px;
+}
+.kontakt_sidebar_p {
+	float: left;
+	width: 460px;
+	padding-top: 40px;
+	padding-right: 5px;
+	padding-bottom: 40px;
+	padding-left: 15px;
+}
+
+
+
+.rejs{
+	width: 306px;
+	height: 290px;
+	background-color: #CCCCCC;
+	-webkit-box-shadow: 5x 5px 4px #BBB;
+	box-shadow: 5px 5px 4px  #BBB;
+	margin-top: 10px;
+	margin-right: 10px;
+	margin-bottom: 2px;
+	margin-left: 0px;
+	display: block;
+	-webkit-transition: background-color 0.5s ease 0s;
+	-moz-transition: background-color 0.5s ease 0s;
+	-ms-transition: background-color 0.5s ease 0s;
+	-o-transition: background-color 0.5s ease 0s;
+	transition: background-color 0.5s ease 0s;
+	float: left;
+}
+.caps {
+	display: block;
+	-webkit-transition: background-color 0.5s ease 0s;
+	-moz-transition: background-color 0.5s ease 0s;
+	-ms-transition: background-color 0.5s ease 0s;
+	-o-transition: background-color 0.5s ease 0s;
+	transition: background-color 0.5s ease 0s;
+	padding-left: 22px;
+	padding-right: 22px;
+	padding-bottom: 16px;
+	padding-top: 16px;
+	font-variant: small-caps;
+	font-size: 20px;
+
+}
+
+
+
+.rejs h3{
+	font-size: 12pt;
+	text-transform: uppercase;
+	color: #666;
+	padding-left: 10px;
+	letter-spacing: 1.1pt;
+	padding-top: 0px;
+	margin-top: 10px;
+}
+
+.rejs:hover{
+	background-color: #AAA;
+}
+.wyr {
+	background-color: #FFCC33;
+}
+.wyr_1 {
+	background-color: #FF77FF;
+}
+
+.nieb {
+	background-color: #73D1E7;
+}
+.nieb2 {
+	background-color: #73D1E7;
+}
+
+
+
+
+
+.wyr:hover {
+	background-color: #E3DE9B;
+}
+
+.rejs a img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+	border: none;
+}
+.rejs a:hover img { /* this selector removes the default blue border displayed in some browsers around an image when it is surrounded by a link */
+	border: none;
+	text-decoration:none;
+}
+/* ~~ Styling for your site's links must remain in this order â including the group of selectors that create the hover effect. ~~ */
+.rejs a:link {
+	color: #333;
+	text-decoration: none; /* unless you style your links to look extremely unique, it's best to provide underlines for quick visual identification */
+}
+.rejs a:visited {
+	color: #333333;
+	text-decoration: none;
+}
+.rejs a:hover, .rejs a:active, .rejs a:focus { /* this group of selectors will give a keyboard navigator the same hover experience as the person using a mouse. */
+	text-decoration: none;
+	color: #333;
+}
+.czerw {
+	color: #FF0000;
+}
+.zielone {
+	color: #4EEA05;
+}
+
+
+.cien {
+	-webkit-box-shadow: 3x 3px 1px #BBB;
+	box-shadow: 3px 3px 1px  #BBB;
+	display: inline-block;
+}
+.symb1 {
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+
+.mapa {
+	margin-bottom: 20px;
+}
+.fot_jacht{
+	margin: 3px 4px 5px 0;
+	border:solid 1px #DCDCDC;
+	float:left;
+}
+h5{
+	font-size: 12pt;
+	color: #111;
+	font-weight: normal;
+	text-align: left;
+	padding: 1pt 0;
+	line-height: 1px;
+	margin-bottom: -10px;
+	text-transform: uppercase;
+}
+/* ~~ The footer ~~ */
+footer {
+	padding: 10px 0;
+	background-color: #FFFFFF;
+	position: relative;/* this gives IE6 hasLayout to properly clear */
+	clear: both; /* this clear property forces the .container to understand where the columns end and contain them */
+	font-size: 10px;
+	color: #888;
+}
+/* ~~ Miscellaneous float/clear classes ~~ */
+.fltrt {  /* this class can be used to float an element right in your page. The floated element must precede the element it should be next to on the page. */
+	float: right;
+	margin-left: 8px;
+}
+.fltlft { /* this class can be used to float an element left in your page. The floated element must precede the element it should be next to on the page. */
+	float: left;
+	margin-right: 8px;
+}
+.clearfloat { /* this class can be placed on a <br /> or empty block element as the final element following the last floated block (within the .container) if the footer is removed or taken out of the .container */
+	clear:both;
+	height:0;
+	font-size: 1px;
+	line-height: 0px;
+}
+
+/*HTML 5 support â Sets new HTML 5 tags to display:block so browsers know how to render the tags properly. */
+header, section, footer, aside, article, figure {
+	display: block;
+}
+
+[if lt IE 9]>
+<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+.co_nowego news {
+}
+.alleft {
+	text-align: left;
+}
+.szer850pix {
+	width: 950px;
+}
