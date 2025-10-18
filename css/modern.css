@@ -131,14 +131,21 @@ body {
     border-radius: 50px;
     font-weight: 600;
     font-size: 1.1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px var(--shadow);
+    transition: transform 0.2s ease, background 0.2s ease;
+    border: none; /* remove visible border */
+    box-shadow: none; /* remove outer glow/outline */
+    outline: none; /* remove focus outline (we'll add accessible focus style separately) */
 }
 
 .cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 6px 20px var(--shadow-hover);
+    transform: translateY(-2px);
     background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    box-shadow: none; /* ensure no hover shadow */
+}
+
+/* Accessible focus style: visible but not an outline/border */
+.cta-button:focus {
+    box-shadow: 0 0 0 4px rgba(14,165,233,0.16); /* subtle ring */
 }
 
 .landing-footer {
