@@ -518,6 +518,7 @@ body {
     justify-content: center;
     padding: 3rem 2rem;
     margin-bottom: 3rem;
+}
 
 /* ===================================
    CALENDAR WIDGET
@@ -543,6 +544,72 @@ body {
 }
 .fc .fc-daygrid-day-number { color: var(--text-dark) !important; font-weight: 600 !important; }
 .fc .fc-daygrid-day-frame { padding: 0.35rem !important; }
+
+/* FullCalendar color fixes: ensure text is readable on the page background */
+.fc {
+    color: var(--text-dark) !important;
+    background: transparent !important;
+}
+.fc * { color: inherit !important; }
+.fc .fc-toolbar-title { color: var(--primary-color) !important; font-weight:700; }
+.fc .fc-col-header-cell, .fc .fc-col-header-cell-cushion, .fc .fc-col-header {
+    color: var(--text-dark) !important;
+    background: transparent !important;
+}
+.fc .fc-daygrid-day-number {
+    color: var(--text-dark) !important;
+    font-weight: 600;
+}
+.fc .fc-daygrid-day-frame {
+    background: var(--white) !important;
+}
+.fc .fc-event {
+    color: #fff !important; /* event text on colored event blocks */
+}
+.calendar-fallback-note { color: var(--text-dark); margin-top: .5rem; }
+
+/* Strong, scoped overrides for calendar inside our layout */
+#calendar-root .fc,
+#calendar-root .fc * {
+    color: #000000 !important;
+}
+
+#calendar-root .fc {
+    background: var(--white) !important;
+}
+
+/* Toolbar */
+#calendar-root .fc-toolbar, #calendar-root .fc-toolbar * {
+    color: var(--primary-color) !important;
+}
+
+/* Column headers */
+#calendar-root .fc-col-header-cell, #calendar-root .fc-col-header-cell-cushion,
+#calendar-root .fc-col-header {
+    color: var(--text-dark) !important;
+    background: transparent !important;
+}
+
+/* Day numbers */
+#calendar-root .fc-daygrid-day-number, #calendar-root .fc-daygrid-day-top {
+    color: var(--text-dark) !important;
+    font-weight: 600 !important;
+}
+
+/* Events: ensure title/time are visible on colored blocks */
+#calendar-root .fc-event, #calendar-root .fc-event * {
+    color: #ffffff !important;
+}
+
+/* Make sure empty cells don't hide their children */
+#calendar-root .fc-daygrid-day {
+    background: var(--white) !important;
+}
+
+/* If FullCalendar uses theme classes, override them too */
+#calendar-root .fc-theme-standard .fc-scrollgrid, #calendar-root .fc-theme-standard .fc-scrollgrid * {
+    color: var(--text-dark) !important;
+}
 
 .calendar-month {
     margin-bottom: 1.5rem;

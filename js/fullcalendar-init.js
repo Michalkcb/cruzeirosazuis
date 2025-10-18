@@ -44,6 +44,13 @@
       var calendar = new FullCalendar.Calendar(root, {
         initialView: 'dayGridMonth',
         locale: 'pl',
+        // Explicit day header labels in Polish (short) to ensure visibility
+        dayHeaderContent: function(arg){
+          var pl = ['Nd','Pn','Wt','Śr','Cz','Pt','So'];
+          // FullCalendar's week starts with Sunday in some configs; align with firstDay
+          var idx = arg.date.getDay(); // 0 = Sunday
+          return { html: pl[idx] };
+        },
         dayHeaderFormat: { weekday: 'short' },
         headerToolbar: { left: 'prev,next today', center: 'title', right: '' },
         firstDay: 1, // Monday
