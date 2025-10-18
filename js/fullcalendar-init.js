@@ -2,18 +2,20 @@
 // Parse existing .schedule-card elements and initialize FullCalendar month view for Apr-Oct 2025
 (function(){
   function qAll(sel, ctx){ return Array.from((ctx||document).querySelectorAll(sel)); }
-  function parseTripDate(str){
+    function parseTripDate(str){
     if(!str) return null;
     var parts = str.split('-').map(s=>s.trim());
     if(parts.length !== 2) return null;
-    function toISO(part){
+    function toLocalISO(part){
       var m = part.match(/(\d{1,2})\/(\d{1,2})/);
       if(!m) return null;
-      var d = parseInt(m[1],10); var mo = parseInt(m[2],10);
-      return (new Date(2025, mo-1, d)).toISOString().slice(0,10);
+      var d = parseInt(m[1],10), mo = parseInt(m[2],10);
+      var dt = new Date(2025, mo-1, d);
+      var pad = function(n){ return n < 10 ? '0'+n : String(n); };
+      return dt.getFullYear() + '-' + pad(dt.getMonth()+1) + '-' + pad(dt.getDate());
     }
-    var s = toISO(parts[0]);
-    var e = toISO(parts[1]);
+    var s = toLocalISO(parts[0]);
+    var e = toLocalISO(parts[1]);
     if(!s || !e) return null;
     return {start:s, end:e};
   }
@@ -37,7 +39,18 @@
     if(!root) return;
     // FullCalendar expects end-exclusive dates for allDay events; our parsed end is inclusive -> add one day
     var raw = gather();
-    raw = raw.map(ev => { return Object.assign({}, ev, { end: (new Date(ev.end)).getTime() ? new Date(new Date(ev.end).getTime() + 24*3600*1000).toISOString().slice(0,10) : ev.end }); });
+    raw = raw.map(function(ev){
+      var endStr = ev.end;
+      var m = String(endStr).match(/(\d{4})-(\d{2})-(\d{2})/);
+      if(m){
+        var y = parseInt(m[1],10), mo = parseInt(m[2],10), d = parseInt(m[3],10);
+        var endExclDate = new Date(y, mo-1, d+1);
+        var pad = function(n){ return n < 10 ? '0'+n : String(n); };
+        var endExcl = endExclDate.getFullYear() + '-' + pad(endExclDate.getMonth()+1) + '-' + pad(endExclDate.getDate());
+        return Object.assign({}, ev, { end: endExcl });
+      }
+      return ev;
+    });
 
     try{
       if(typeof FullCalendar === 'undefined' || !FullCalendar.Calendar) throw new Error('FullCalendar not loaded');

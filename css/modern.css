@@ -35,7 +35,14 @@ body {
                  'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
     line-height: 1.6;
     color: var(--text-dark);
+    /* Full-page background image with gradient overlay for legibility.
+       Use an absolute root-path so it's applied correctly from any page. */
     background-color: var(--bg-light);
+    background-image: linear-gradient(135deg, rgba(30,58,138,0.55), rgba(14,165,233,0.35)), url('/images/agios-nicolaos.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
@@ -510,8 +517,9 @@ body {
    PAGE HERO
    =================================== */
 .page-hero {
-    background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(14, 165, 233, 0.8)), 
-                url('../images/background-sea.jpg') center/cover no-repeat;
+    /* Keep a gradient overlay for the hero area; the page background image is
+       provided on the <body> so we don't duplicate the image here. */
+    background: linear-gradient(135deg, rgba(30, 58, 138, 0.9), rgba(14, 165, 233, 0.8));
     min-height: 200px;
     display: flex;
     align-items: center;
@@ -550,7 +558,8 @@ body {
     color: var(--text-dark) !important;
     background: transparent !important;
 }
-.fc * { color: inherit !important; }
+/* Remove generic inheritance to avoid overriding button-specific colors */
+/* (intentionally removed) */
 .fc .fc-toolbar-title { color: var(--primary-color) !important; font-weight:700; }
 .fc .fc-col-header-cell, .fc .fc-col-header-cell-cushion, .fc .fc-col-header {
     color: var(--text-dark) !important;
@@ -569,21 +578,38 @@ body {
 .calendar-fallback-note { color: var(--text-dark); margin-top: .5rem; }
 
 /* Strong, scoped overrides for calendar inside our layout */
-#calendar-root .fc,
-#calendar-root .fc * {
-    color: #000000 !important;
-}
-
 #calendar-root .fc {
     background: var(--white) !important;
+    /* Make all toolbar button labels/icons white while keeping existing button backgrounds */
+    --fc-button-text-color: #ffffff;
 }
 
-/* Toolbar */
-#calendar-root .fc-toolbar, #calendar-root .fc-toolbar * {
-    color: #fff !important;
+/* Toolbar: keep title readable and buttons high-contrast */
+#calendar-root .fc .fc-toolbar-title {
+    color: var(--primary-color) !important;
 }
 
-/* Make the "next" button label white for better contrast */
+/* Force all toolbar button labels/icons to white without changing backgrounds */
+#calendar-root .fc .fc-toolbar .fc-button,
+#calendar-root .fc .fc-toolbar .fc-button * {
+    color: #ffffff !important;
+}
+#calendar-root .fc .fc-toolbar .fc-button .fc-icon,
+#calendar-root .fc .fc-toolbar .fc-button .fc-icon::before,
+#calendar-root .fc .fc-toolbar .fc-button svg {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+    stroke: #ffffff !important;
+    border-color: #ffffff !important; /* for chevron triangles */
+}
+#calendar-root .fc .fc-toolbar .fc-button .fc-icon-chevron-left,
+#calendar-root .fc .fc-toolbar .fc-button .fc-icon-chevron-right,
+#calendar-root .fc .fc-toolbar .fc-button .fc-icon-chevron-left::before,
+#calendar-root .fc .fc-toolbar .fc-button .fc-icon-chevron-right::before {
+    border-color: #ffffff !important;
+}
+
+/* Next button: keep existing background; force white label/icon */
 #calendar-root .fc .fc-next-button,
 #calendar-root .fc .fc-button.fc-next-button,
 #calendar-root .fc .fc-button-next {
@@ -599,7 +625,7 @@ body {
     color: #ffffff !important;
 }
 
-/* Ensure next button stays white on hover, focus and active states */
+/* Keep next button label/icon white in all states */
 #calendar-root .fc .fc-next-button:hover,
 #calendar-root .fc .fc-button.fc-next-button:hover,
 #calendar-root .fc .fc-button-next:hover,
@@ -614,8 +640,56 @@ body {
 #calendar-root .fc .fc-button-next:visited {
     color: #ffffff !important;
     fill: #ffffff !important;
-    background-color: transparent !important;
-    border-color: transparent !important;
+}
+
+/* Prev button: keep existing background; force white label/icon */
+#calendar-root .fc .fc-prev-button,
+#calendar-root .fc .fc-button.fc-prev-button,
+#calendar-root .fc .fc-button-prev {
+    color: #ffffff !important;
+}
+
+/* Ensure icons inside the prev button (if any) are white */
+#calendar-root .fc .fc-prev-button svg,
+#calendar-root .fc .fc-prev-button .fc-icon,
+#calendar-root .fc .fc-button.fc-prev-button svg,
+#calendar-root .fc .fc-button.fc-prev-button .fc-icon {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+}
+
+/* Keep prev button label/icon white in all states */
+#calendar-root .fc .fc-prev-button:hover,
+#calendar-root .fc .fc-button.fc-prev-button:hover,
+#calendar-root .fc .fc-button-prev:hover,
+#calendar-root .fc .fc-prev-button:focus,
+#calendar-root .fc .fc-button.fc-prev-button:focus,
+#calendar-root .fc .fc-button-prev:focus,
+#calendar-root .fc .fc-prev-button:active,
+#calendar-root .fc .fc-button.fc-prev-button:active,
+#calendar-root .fc .fc-button-prev:active,
+#calendar-root .fc .fc-prev-button:visited,
+#calendar-root .fc .fc-button.fc-prev-button:visited,
+#calendar-root .fc .fc-button-prev:visited {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+}
+/* Other toolbar buttons (e.g., today): keep their background; force white label/icon */
+#calendar-root .fc .fc-button:not(.fc-prev-button):not(.fc-next-button) {
+    color: #ffffff !important;
+}
+
+#calendar-root .fc .fc-button:not(.fc-prev-button):not(.fc-next-button) .fc-icon,
+#calendar-root .fc .fc-button:not(.fc-prev-button):not(.fc-next-button) svg {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+}
+
+/* Ensure disabled state remains visible but muted */
+#calendar-root .fc .fc-button:disabled,
+#calendar-root .fc .fc-button.fc-button-disabled {
+    opacity: 0.6 !important;
+    color: #ffffff !important;
 }
 
 /* Column headers */
