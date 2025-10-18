@@ -580,7 +580,42 @@ body {
 
 /* Toolbar */
 #calendar-root .fc-toolbar, #calendar-root .fc-toolbar * {
-    color: var(--primary-color) !important;
+    color: #fff !important;
+}
+
+/* Make the "next" button label white for better contrast */
+#calendar-root .fc .fc-next-button,
+#calendar-root .fc .fc-button.fc-next-button,
+#calendar-root .fc .fc-button-next {
+    color: #ffffff !important;
+}
+
+/* Also ensure icons inside the button (if any) are white */
+#calendar-root .fc .fc-next-button svg,
+#calendar-root .fc .fc-next-button .fc-icon,
+#calendar-root .fc .fc-button.fc-next-button svg,
+#calendar-root .fc .fc-button.fc-next-button .fc-icon {
+    fill: #ffffff !important;
+    color: #ffffff !important;
+}
+
+/* Ensure next button stays white on hover, focus and active states */
+#calendar-root .fc .fc-next-button:hover,
+#calendar-root .fc .fc-button.fc-next-button:hover,
+#calendar-root .fc .fc-button-next:hover,
+#calendar-root .fc .fc-next-button:focus,
+#calendar-root .fc .fc-button.fc-next-button:focus,
+#calendar-root .fc .fc-button-next:focus,
+#calendar-root .fc .fc-next-button:active,
+#calendar-root .fc .fc-button.fc-next-button:active,
+#calendar-root .fc .fc-button-next:active,
+#calendar-root .fc .fc-next-button:visited,
+#calendar-root .fc .fc-button.fc-next-button:visited,
+#calendar-root .fc .fc-button-next:visited {
+    color: #ffffff !important;
+    fill: #ffffff !important;
+    background-color: transparent !important;
+    border-color: transparent !important;
 }
 
 /* Column headers */
