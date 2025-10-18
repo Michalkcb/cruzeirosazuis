@@ -96,34 +96,29 @@
 
   // place event bars spanning across the day cells for the given date range
   function placeEvents(root, events){
-    // for each month overlay, compute pixel-accurate left/width using cell bounding boxes
+    // Use a CSS-grid overlay that matches the calendar grid; place bars by grid-column/row
     var months = qAll('.calendar-month', root);
     months.forEach(monthEl => {
       var overlay = monthEl.querySelector('.events-overlay');
       if(!overlay) return;
-      // clear existing
       overlay.innerHTML = '';
 
-      var header = monthEl.querySelector('.calendar-month-header');
-      var weekdays = monthEl.querySelector('.calendar-weekdays');
       var grid = monthEl.querySelector('.calendar-grid');
       if(!grid) return;
 
-      // set overlay top and height to match grid area
-      var headerH = header ? header.getBoundingClientRect().height : 0;
-      var wkH = weekdays ? weekdays.getBoundingClientRect().height : 0;
-      overlay.style.top = (headerH + wkH) + 'px';
-      overlay.style.height = grid.getBoundingClientRect().height + 'px';
+      // make overlay a grid matching the calendar grid
+      overlay.style.display = 'grid';
+      overlay.style.gridTemplateColumns = window.getComputedStyle(grid).getPropertyValue('grid-template-columns');
+      // grid-auto-rows may return 'auto' in some browsers; try to copy the value set on root
+      overlay.style.gridAutoRows = window.getComputedStyle(grid).getPropertyValue('grid-auto-rows') || getComputedStyle(document.documentElement).getPropertyValue('--day-size') + 'px';
 
       var cells = Array.from(grid.querySelectorAll('.calendar-day'));
       if(cells.length === 0) return;
 
-      var gridRect = grid.getBoundingClientRect();
-      var cellRects = {};
-      cells.forEach((c,i)=> {
-        var r = c.getBoundingClientRect();
-        cellRects[c.dataset.date] = {rect: r, idx: i};
-      });
+      // map date->index
+      var dateIndex = {};
+      cells.forEach((c,i)=> dateIndex[c.dataset.date] = i);
+      var weeks = Math.ceil(cells.length / 7);
 
       events.forEach((ev, evIndex) => {
         var evStart = new Date(ev.start);
@@ -137,21 +132,34 @@
         var end = evEnd > monthLast ? monthLast : evEnd;
         var startIso = dateToIso(start);
         var endIso = dateToIso(end);
-        var startRect = cellRects[startIso] && cellRects[startIso].rect;
-        var endRect = cellRects[endIso] && cellRects[endIso].rect;
-        if(!startRect || !endRect) return;
+        if(!(startIso in dateIndex) || !(endIso in dateIndex)) return;
+        var startIdx = dateIndex[startIso];
+        var endIdx = dateIndex[endIso];
 
-        var left = startRect.left - gridRect.left;
-        var width = endRect.right - startRect.left;
+        var startWeek = Math.floor(startIdx/7);
+        var endWeek = Math.floor(endIdx/7);
 
-        var bar = document.createElement('div');
-        bar.className = 'event-bar ' + (ev.soldOut ? 'event-soldout' : 'event-available');
-        bar.textContent = ev.route;
-        bar.style.left = left + 'px';
-        bar.style.width = Math.max(6, width) + 'px';
-        bar.style.top = (6 + (evIndex%4) * 28) + 'px';
-        overlay.appendChild(bar);
+        for(var w = startWeek; w<=endWeek; w++){
+          var segStart = (w === startWeek) ? (startIdx % 7) : 0;
+          var segEnd = (w === endWeek) ? (endIdx % 7) : 6;
+          var colStart = segStart + 1; // grid columns are 1-based
+          var colEnd = segEnd + 2; // end is exclusive
+          var row = w + 1; // grid rows are 1-based
+
+          var bar = document.createElement('div');
+          bar.className = 'event-bar ' + (ev.soldOut ? 'event-soldout' : 'event-available');
+          bar.textContent = ev.route;
+          // place via grid
+          bar.style.gridColumnStart = colStart;
+          bar.style.gridColumnEnd = colEnd;
+          bar.style.gridRowStart = row;
+          bar.style.zIndex = 2;
+          bar.dataset.eventId = ev.route.substring(0,10) + '-' + w;
+          overlay.appendChild(bar);
+        }
       });
+      // ensure overlay has same number of rows as grid
+      overlay.style.gridTemplateRows = 'repeat(' + weeks + ', ' + window.getComputedStyle(grid).getPropertyValue('grid-auto-rows') + ')';
     });
   }
 
