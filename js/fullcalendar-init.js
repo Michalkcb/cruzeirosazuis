@@ -39,18 +39,38 @@
     var raw = gather();
     raw = raw.map(ev => { return Object.assign({}, ev, { end: (new Date(ev.end)).getTime() ? new Date(new Date(ev.end).getTime() + 24*3600*1000).toISOString().slice(0,10) : ev.end }); });
 
-    var calendar = new FullCalendar.Calendar(root, {
-      initialView: 'dayGridMonth',
-      headerToolbar: { left: 'prev,next today', center: 'title', right: '' },
-      firstDay: 1, // Monday
-      initialDate: '2025-04-01',
-      validRange: { start: '2025-04-01', end: '2025-11-01' }, // FullCalendar end is exclusive
-      events: raw,
-      dayMaxEventRows: true,
-      height: 'auto',
-      fixedWeekCount: false
-    });
+    try{
+      if(typeof FullCalendar === 'undefined' || !FullCalendar.Calendar) throw new Error('FullCalendar not loaded');
+      var calendar = new FullCalendar.Calendar(root, {
+        initialView: 'dayGridMonth',
+        locale: 'pl',
+        dayHeaderFormat: { weekday: 'short' },
+        headerToolbar: { left: 'prev,next today', center: 'title', right: '' },
+        firstDay: 1, // Monday
+        initialDate: '2025-04-01',
+        validRange: { start: '2025-04-01', end: '2025-11-01' }, // FullCalendar end is exclusive
+        events: raw,
+        dayMaxEventRows: true,
+        height: 'auto',
+        fixedWeekCount: false
+      });
 
-    calendar.render();
+      calendar.render();
+    }catch(err){
+      // If calendar fails for any reason, reveal the original schedule list as a fallback
+      console.warn('FullCalendar init failed:', err);
+      var fallback = document.querySelector('.schedule-grid');
+      if(fallback){
+        fallback.classList.remove('visually-hidden');
+        fallback.setAttribute('aria-hidden','false');
+      }
+      // also add a simple message for users
+      if(root && root.parentNode){
+        var p = document.createElement('p');
+        p.className = 'calendar-fallback-note';
+        p.textContent = 'Kalendarz chwilowo niedostępny — poniżej znajduje się lista terminów.';
+        root.parentNode.insertBefore(p, root.nextSibling);
+      }
+    }
   });
 })();
