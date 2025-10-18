@@ -1,0 +1,8 @@
+# Ignore large asset directories
+images/
+galerie/
+
+# Optional: common OS/editor cruft (uncomment if needed)
+# .DS_Store
+# Thumbs.db
+# .vscode/
